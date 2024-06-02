@@ -1,6 +1,10 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { database } from '../firebase'; // Adjust the path if needed
 import { ref, onValue, off } from "firebase/database";
+import { Button } from './ui/button';
+import Header from './Header';
+import Card from './Card';
+import List from './List';
 
 const Read = () => {
   const [data, setData] = useState({
@@ -167,32 +171,24 @@ const Read = () => {
 
   return (
     <div>
-      <h1>Data from Firebase</h1>
+      <Header></Header>
+      <div className='grid grid-cols-3 gap-2'>
       <div>
-        <h2>Acceleration</h2>
-        <p>X: {data.acceleration.x}</p>
-        <p>Y: {data.acceleration.y}</p>
-        <p>Z: {data.acceleration.z}</p>
-        <p>Magnitude: {Math.sqrt(data.acceleration.x * data.acceleration.x + 
+      <Card img1={'https://i.postimg.cc/YGxLXDv7/eepyCar2.jpg'} img2={'https://i.postimg.cc/cvV368pp/eepyCar.jpg'} name={"Cat is " + data.catStatus}
+                                      des={"Determines if the Cat is resting or moving around using ADXL345 sensor."}></Card>
+      <List a={'Acceleration Magnitude'} b={Math.sqrt(data.acceleration.x * data.acceleration.x + 
                                  data.acceleration.y * data.acceleration.y + 
-                                 data.acceleration.z * data.acceleration.z)}</p>
-        <p>Status: {data.catStatus}</p>
-        <p>Resting Time: {formatTime(data.restDuration)}</p>
-        <p>Moving Time: {formatTime(data.moveDuration)}</p>
+                                 data.acceleration.z * data.acceleration.z)} c={'Acceleration'} d={'X'+" "+data.acceleration.x + ',' + 'Y'+" "+data.acceleration.y + ',' + 'Z'+" "+data.acceleration.z}
+                                 e={'Resting Time'} f={formatTime(data.restDuration)} g={'Moving Time'} h={formatTime(data.moveDuration)}></List>
       </div>
       <div>
-        <h2>Test</h2>
-        <p>Float: {data.test.float}</p>
-        <p>Int: {data.test.int}</p>
+      <Card img1={'https://i.postimg.cc/5HLCz216/speed-Cat2.jpg'} img2={'https://i.postimg.cc/R6mnLxVG/speedCat.jpg'} name={'Where is my Cat?'} des={"Determines if the Cat is moving far away from home perimeter or is in range using WiFi Signal Strength."}></Card>
+      <List a={'Wifi signal Strength'} b={data.wifiStrength} c={'Cat Status'} d={wifiStatusMessage()}></List>
       </div>
       <div>
-        <h2>Wi-Fi Strength</h2>
-        <p>{data.wifiStrength}</p>
-        <p>{wifiStatusMessage()}</p>
+      <Card img1={'https://i.postimg.cc/cvV368pp/eepyCar.jpg'} img2={'https://i.postimg.cc/YGxLXDv7/eepyCar2.jpg'} name={'How much is left in the Bowl?'} des={"Determines how much that cat has eaten off the bowl since the last feed."}></Card>
+      <List a={'Bowl Weight'} b={data.bowlWeight !== null ? `${data.bowlWeight} g` : 'No data available'}></List>
       </div>
-      <div>
-        <h2>Bowl Weight</h2> {/* Section for bowl weight */}
-        <p>{data.bowlWeight !== null ? `${data.bowlWeight} kg` : 'No data available'}</p>
       </div>
     </div>
   );
