@@ -1,10 +1,10 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { database } from '../firebase'; // Adjust the path if needed
 import { ref, onValue, off } from "firebase/database";
-import { Button } from './ui/button';
 import Header from './Header';
 import Card from './Card';
 import List from './List';
+import Footer from './Footer';
 
 const Read = () => {
   const [data, setData] = useState({
@@ -172,7 +172,7 @@ const Read = () => {
   return (
     <div>
       <Header></Header>
-      <div className='grid grid-cols-3 gap-2'>
+      <div className='grid gap-2 sm:grid-cols-1 md:grid-cols-3'>
       <div>
       <Card img1={'https://i.postimg.cc/YGxLXDv7/eepyCar2.jpg'} img2={'https://i.postimg.cc/cvV368pp/eepyCar.jpg'} name={"Cat is " + data.catStatus}
                                       des={"Determines if the Cat is resting or moving around using ADXL345 sensor."}></Card>
@@ -186,10 +186,11 @@ const Read = () => {
       <List a={'Wifi signal Strength'} b={data.wifiStrength} c={'Cat Status'} d={wifiStatusMessage()}></List>
       </div>
       <div>
-      <Card img1={'https://i.postimg.cc/cvV368pp/eepyCar.jpg'} img2={'https://i.postimg.cc/YGxLXDv7/eepyCar2.jpg'} name={'How much is left in the Bowl?'} des={"Determines how much that cat has eaten off the bowl since the last feed."}></Card>
+      <Card img1={'https://i.postimg.cc/cJJWTL2N/fatcar2.jpg'} img2={'https://i.postimg.cc/KvmHtsC6/fatCar1.png'} name={'How much is left in the Bowl?'} des={"Determines how much that cat has eaten off the bowl since the last feed."}></Card>
       <List a={'Bowl Weight'} b={data.bowlWeight !== null ? `${data.bowlWeight} g` : 'No data available'}></List>
       </div>
       </div>
+      <Footer></Footer>
     </div>
   );
 };
