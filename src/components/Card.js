@@ -29,7 +29,7 @@ function Card({ img1, img2, name, des }) {
         <img
           src={imageSrc}
           alt=""
-          className="absolute inset-0 h-full w-full object-cover opacity-100 group-hover:opacity-0"
+          className="absolute inset-0 h-full w-full object-cover opacity-100"
         />
       </div>
 
