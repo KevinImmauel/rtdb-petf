@@ -175,7 +175,7 @@ const Read = () => {
       <Header></Header>
       <div className='grid gap-2 sm:grid-cols-1 md:grid-cols-3'>
       <div>
-      <Card img1={'https://i.postimg.cc/cvV368pp/eepyCar.jpg'} img2={'https://i.pinimg.com/originals/a4/62/4d/a4624d5a0839a2817eaabd1dec2c518c.gif'} name={"Cat is " + data.catStatus}
+      <Card img1={'https://i.pinimg.com/originals/a4/62/4d/a4624d5a0839a2817eaabd1dec2c518c.gif'} img2={'https://i.postimg.cc/YGxLXDv7/eepyCar2.jpg'} name={"Cat is " + data.catStatus}
                                       des={"Determines if the Cat is resting or moving around using ADXL345 sensor."}></Card>
       <List a={'Acceleration Magnitude'} b={Math.sqrt(data.acceleration.x * data.acceleration.x + 
                                  data.acceleration.y * data.acceleration.y + 
