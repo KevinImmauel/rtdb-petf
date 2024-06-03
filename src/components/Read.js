@@ -6,6 +6,7 @@ import Card from './Card';
 import List from './List';
 import Footer from './Footer';
 import SimpleCard from './SimpleCard';
+import SimpleCard2 from './SimpleCard2';
 
 const Read = () => {
   const [data, setData] = useState({
@@ -183,7 +184,7 @@ const Read = () => {
                                  e={'Resting Time'} f={formatTime(data.restDuration)} g={'Moving Time'} h={formatTime(data.moveDuration)}></List>
       </div>
       <div>
-      <SimpleCard img={'https://i.postimg.cc/5HLCz216/speed-Cat2.jpg'} name={'Where is my Cat?'} des={"Determines if the Cat is moving far away from home perimeter or is in range using WiFi Signal Strength."}></SimpleCard>
+      <SimpleCard2 img={'https://i.postimg.cc/5HLCz216/speed-Cat2.jpg'} name={'Where is my Cat?'} des={"Determines if the Cat is moving far away from home perimeter or is in range using WiFi Signal Strength."} wifiStatusMessage={wifiStatusMessage()}></SimpleCard2>
       <List a={'Wifi signal Strength'} b={data.wifiStrength} c={'Cat Status'} d={wifiStatusMessage()}></List>
       </div>
       <div>
