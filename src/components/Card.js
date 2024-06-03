@@ -7,10 +7,10 @@ function Card({ img1, img2, name, des }) {
     // Function to set image source based on the name prop
     const setImageBasedOnName = () => {
       switch (name) {
-        case 'Moving around':
+        case 'Cat is Moving around':
           setImageSrc(img1);
           break;
-        case 'Resting':
+        case 'Cat is Resting':
           setImageSrc(img2);
           break;
         default:
