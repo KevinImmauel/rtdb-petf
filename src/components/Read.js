@@ -184,11 +184,11 @@ const Read = () => {
                                  e={'Resting Time'} f={formatTime(data.restDuration)} g={'Moving Time'} h={formatTime(data.moveDuration)}></List>
       </div>
       <div>
-      <SimpleCard2 img={'https://i.postimg.cc/5HLCz216/speed-Cat2.jpg'} name={'Where is my Cat?'} des={"Determines if the Cat is moving far away from home perimeter or is in range using WiFi Signal Strength."} wifiStatusMessage={wifiStatusMessage()}></SimpleCard2>
+      <SimpleCard2 img={'https://i.postimg.cc/5HLCz216/speed-Cat2.jpg'} name={'Where is my Cat?'} des={"Determines if the Cat is moving far away from home perimeter or is in range using WiFi Signal Strength."} wifiStatusMessage={wifiStatusMessage()} img2={"https://media.tenor.com/MSEHyb7uNi8AAAAC/cat-driving.gif"}></SimpleCard2>
       <List a={'Wifi signal Strength'} b={data.wifiStrength} c={'Cat Status'} d={wifiStatusMessage()}></List>
       </div>
       <div>
-      <SimpleCard img={'https://i.postimg.cc/cJJWTL2N/fatcar2.jpg'} name={'How much is left in the Bowl?'} des={"Determines how much that cat has eaten off the bowl since the last feed."}></SimpleCard>
+      <SimpleCard2 img={'https://i.postimg.cc/cJJWTL2N/fatcar2.jpg'} name={'How much is left in the Bowl?'} des={"Determines how much that cat has eaten off the bowl since the last feed."} wifiStatusMessage={data.bowlWeight !== null ? `${data.bowlWeight} g` : 'No data available'} img2={"https://i.pinimg.com/originals/b6/d2/df/b6d2df289c41eed4569130980bf4b0ea.gif"}></SimpleCard2>
       <List a={'Bowl Weight'} b={data.bowlWeight !== null ? `${data.bowlWeight} g` : 'No data available'}></List>
       </div>
       </div>

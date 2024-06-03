@@ -1,11 +1,11 @@
 import React from 'react';
 
-function SimpleCard2({ img, name, des, wifiStatusMessage }) {
+function SimpleCard2({ img, name, des, wifiStatusMessage, img2 }) {
   // Determine the image source based on the wifiStatusMessage
   const getImageSrc = () => {
-    if (wifiStatusMessage === "Pet is away") {
+    if ((wifiStatusMessage === "Pet is away") || (wifiStatusMessage > 25))  {
       // Return the alternate image source if the pet is away
-      return "https://media.tenor.com/MSEHyb7uNi8AAAAC/cat-driving.gif";
+      return img2;
     }
     // Return the default image source otherwise
     return img;
