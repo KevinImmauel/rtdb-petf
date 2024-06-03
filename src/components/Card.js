@@ -1,30 +1,44 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
 
-function Card( {img1, img2, name,des} ) {
+function Card({ img1, img2, name, des }) {
+  const [imageSrc, setImageSrc] = useState('');
+
+  useEffect(() => {
+    // Function to set image source based on the name prop
+    const setImageBasedOnName = () => {
+      switch (name) {
+        case 'Moving around':
+          setImageSrc(img1);
+          break;
+        case 'Resting':
+          setImageSrc(img2);
+          break;
+        default:
+          setImageSrc('default-pic.jpg'); // You can set a default image if needed
+          break;
+      }
+    };
+
+    // Call the function to set image source
+    setImageBasedOnName();
+  }, [name, img1, img2]); // Run effect whenever name, img1 or img2 changes
+
   return (
-        <a href="#" class="group relative block  rounded-full">
-  <div class="relative h-[350px] sm:h-[450px]">
-    <img
-      src={img1}
-      alt=""
-      class="absolute inset-0 h-full w-full object-cover opacity-100 group-hover:opacity-0"
-    />
+    <a href="#" className="group relative block rounded-full">
+      <div className="relative h-[350px] sm:h-[450px]">
+        <img
+          src={imageSrc}
+          alt=""
+          className="absolute inset-0 h-full w-full object-cover opacity-100 group-hover:opacity-0"
+        />
+      </div>
 
-    <img
-      src={img2}
-      alt=""
-      class="absolute inset-0 h-full w-full object-cover opacity-0 group-hover:opacity-100"
-    />
-  </div>
-
-  <div class="absolute inset-0 flex flex-col items-start justify-end p-6">
-    <h3 class="text-xl font-medium text-white">{name}</h3>
-    <p class="mt-1.5 text-pretty text-xs text-white">
-      {des}
-    </p>
-  </div>
-</a>
-  )
+      <div className="absolute inset-0 flex flex-col items-start justify-end p-6">
+        <h3 className="text-xl font-medium text-white">{name}</h3>
+        <p className="mt-1.5 text-pretty text-xs text-white">{des}</p>
+      </div>
+    </a>
+  );
 }
 
-export default Card
+export default Card;
