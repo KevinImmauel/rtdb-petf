@@ -15,7 +15,8 @@ This project is a React-based web application integrated with Firebase Realtime 
 ---
 
 ### Screenshots
-![Uploading {318E418A-83E3-4841-AB46-1E7ABBB81CBE}.png…]()
+![{318E418A-83E3-4841-AB46-1E7ABBB81CBE}](https://github.com/user-attachments/assets/4a866c11-e4cb-4ccb-a215-fa112ff1cf5b)
+
 - Pet resting detection with sensor data.
 - Location tracking using Wi-Fi signal strength.
 - Food level monitoring based on bowl weight.
